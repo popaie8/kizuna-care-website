@@ -5,45 +5,69 @@ document.addEventListener('DOMContentLoaded', function() {
     if (video) {
         let videoLoaded = false;
         
+        console.log('Video element found, attempting to load:', video.src);
+        
+        // Force load the video
+        video.load();
+        
         // Check if video file exists
         video.addEventListener('loadeddata', function() {
-            // Video loaded successfully, show it
+            console.log('Video loaded successfully');
             video.style.display = 'block';
             videoLoaded = true;
-            console.log('Video loaded successfully');
+        });
+        
+        video.addEventListener('loadedmetadata', function() {
+            console.log('Video metadata loaded');
+        });
+        
+        video.addEventListener('canplay', function() {
+            console.log('Video can start playing');
+            if (!videoLoaded) {
+                video.style.display = 'block';
+                videoLoaded = true;
+            }
         });
         
         video.addEventListener('error', function(e) {
-            // Video failed to load, keep gradient background
             console.error('Video failed to load:', e);
+            console.error('Video error details:', e.target.error);
             video.style.display = 'none';
         });
         
-        // Add loading timeout - if video doesn't load in 5 seconds, give up
+        // Add loading timeout - if video doesn't load in 10 seconds, give up
         setTimeout(function() {
             if (!videoLoaded) {
                 console.log('Video loading timeout - using gradient background');
                 video.style.display = 'none';
             }
-        }, 5000);
+        }, 10000);
         
-        // Try to play video
-        const playPromise = video.play();
-        if (playPromise !== undefined) {
-            playPromise.then(function() {
-                console.log('Video autoplay started');
-                video.style.display = 'block';
-            }).catch(function(error) {
-                console.log('Video autoplay failed:', error);
-                // Try to play on user interaction
-                document.addEventListener('click', function playVideo() {
-                    video.play().then(function() {
+        // Try to play video after a short delay
+        setTimeout(function() {
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.then(function() {
+                    console.log('Video autoplay started');
+                    if (!videoLoaded) {
                         video.style.display = 'block';
-                    });
-                    document.removeEventListener('click', playVideo);
-                }, { once: true });
-            });
-        }
+                        videoLoaded = true;
+                    }
+                }).catch(function(error) {
+                    console.log('Video autoplay failed:', error);
+                    // Try to play on user interaction
+                    document.addEventListener('click', function playVideo() {
+                        video.play().then(function() {
+                            console.log('Video started after user interaction');
+                            video.style.display = 'block';
+                        }).catch(function(err) {
+                            console.error('Video play failed even after user interaction:', err);
+                        });
+                        document.removeEventListener('click', playVideo);
+                    }, { once: true });
+                });
+            }
+        }, 500);
     }
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
