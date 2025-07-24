@@ -18,24 +18,27 @@
     text-shadow: 0 2px 8px rgba(0,0,0,0.8);
 }
 
-/* City view hero styles */
+/* City view hero styles - Fixed */
 #fallback-bg {
     display: block;
     z-index: 1;
 }
 
 #hero-video {
-    z-index: 2;
+    z-index: 10 !important;
 }
 
-#hero-video:not([style*="display: none"]) ~ #fallback-bg {
-    display: none;
+/* Hide fallback when video is playing (JavaScript will add this class) */
+.video-loaded #fallback-bg {
+    display: none !important;
 }
 
-/* Ensure video is visible when loaded */
-#hero-video[style*="display: block"] {
+/* Ensure video is always visible when loaded */
+#hero-video[style*="display: block"],
+#hero-video.video-visible {
     display: block !important;
     opacity: 1 !important;
+    z-index: 10 !important;
 }
 
 /* Enhanced gradient overlay for better text readability */

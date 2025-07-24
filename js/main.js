@@ -13,11 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Check if video file exists
         video.addEventListener('loadeddata', function() {
             console.log('Video loaded successfully');
-            video.style.display = 'block';
-            video.style.opacity = '1';
-            video.style.zIndex = '2';
-            video.style.visibility = 'visible';
-            console.log('Video display, opacity, z-index, and visibility set in loadeddata');
+            video.style.cssText = 'display: block !important; opacity: 1 !important; z-index: 10 !important; visibility: visible !important; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;';
+            video.classList.add('video-visible');
+            document.getElementById('home').classList.add('video-loaded');
+            console.log('Video style completely replaced and classes added');
             console.log('Video computed style:', window.getComputedStyle(video).display);
             videoLoaded = true;
         });
@@ -29,11 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
         video.addEventListener('canplay', function() {
             console.log('Video can start playing');
             if (!videoLoaded) {
-                video.style.display = 'block';
-                video.style.opacity = '1';
-                video.style.zIndex = '2';
-                video.style.visibility = 'visible';
-                console.log('Video display, opacity, z-index, and visibility set in canplay');
+                video.style.cssText = 'display: block !important; opacity: 1 !important; z-index: 10 !important; visibility: visible !important; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;';
+                video.classList.add('video-visible');
+                document.getElementById('home').classList.add('video-loaded');
+                console.log('Video style completely replaced and classes added in canplay');
                 console.log('Video computed style:', window.getComputedStyle(video).display);
                 videoLoaded = true;
             }
