@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
         video.addEventListener('loadeddata', function() {
             console.log('Video loaded successfully');
             video.style.display = 'block';
+            video.style.opacity = '1';
+            console.log('Video display and opacity set in loadeddata');
             videoLoaded = true;
         });
         
@@ -25,6 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Video can start playing');
             if (!videoLoaded) {
                 video.style.display = 'block';
+                video.style.opacity = '1';
+                console.log('Video display set to block and opacity to 1');
                 videoLoaded = true;
             }
         });
