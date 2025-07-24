@@ -15,7 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Video loaded successfully');
             video.style.display = 'block';
             video.style.opacity = '1';
-            console.log('Video display and opacity set in loadeddata');
+            video.style.zIndex = '2';
+            video.style.visibility = 'visible';
+            console.log('Video display, opacity, z-index, and visibility set in loadeddata');
+            console.log('Video computed style:', window.getComputedStyle(video).display);
             videoLoaded = true;
         });
         
@@ -28,7 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!videoLoaded) {
                 video.style.display = 'block';
                 video.style.opacity = '1';
-                console.log('Video display set to block and opacity to 1');
+                video.style.zIndex = '2';
+                video.style.visibility = 'visible';
+                console.log('Video display, opacity, z-index, and visibility set in canplay');
+                console.log('Video computed style:', window.getComputedStyle(video).display);
                 videoLoaded = true;
             }
         });
