@@ -3,29 +3,43 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle video background
     const video = document.getElementById('hero-video');
     if (video) {
+        let videoLoaded = false;
+        
         // Check if video file exists
         video.addEventListener('loadeddata', function() {
             // Video loaded successfully, show it
             video.style.display = 'block';
+            videoLoaded = true;
             console.log('Video loaded successfully');
         });
         
         video.addEventListener('error', function(e) {
             // Video failed to load, keep gradient background
-            console.log('Video failed to load:', e);
+            console.error('Video failed to load:', e);
             video.style.display = 'none';
         });
+        
+        // Add loading timeout - if video doesn't load in 5 seconds, give up
+        setTimeout(function() {
+            if (!videoLoaded) {
+                console.log('Video loading timeout - using gradient background');
+                video.style.display = 'none';
+            }
+        }, 5000);
         
         // Try to play video
         const playPromise = video.play();
         if (playPromise !== undefined) {
             playPromise.then(function() {
                 console.log('Video autoplay started');
+                video.style.display = 'block';
             }).catch(function(error) {
                 console.log('Video autoplay failed:', error);
                 // Try to play on user interaction
                 document.addEventListener('click', function playVideo() {
-                    video.play();
+                    video.play().then(function() {
+                        video.style.display = 'block';
+                    });
                     document.removeEventListener('click', playVideo);
                 }, { once: true });
             });
