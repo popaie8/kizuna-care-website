@@ -100,7 +100,7 @@
             </div>
             
             <!-- Video/Image Side -->
-            <div class="w-full md:w-3/5 lg:w-3/5 relative order-2 md:order-2 split-screen-mobile md:h-screen blend-edges soft-shadow-left">
+            <div class="w-full md:w-3/5 lg:w-3/5 relative order-2 md:order-2 split-screen-mobile md:h-screen blend-edges soft-shadow-left overflow-hidden">
                 <!-- Video Background -->
                 <video 
                     autoplay 
@@ -115,8 +115,14 @@
                     <source src="assets/hero-video.mp4" type="video/mp4">
                 </video>
                 
-                <!-- Gradient overlay for video -->
-                <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" style="z-index: 5;"></div>
+                <!-- Gradient overlays for smooth blending on all sides -->
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-50/60 via-transparent to-transparent" style="z-index: 5;"></div>
+                <!-- Top edge fade -->
+                <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/40 to-transparent" style="z-index: 6;"></div>
+                <!-- Bottom edge fade -->
+                <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white/40 to-transparent" style="z-index: 6;"></div>
+                <!-- Right edge fade -->
+                <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white/30 to-transparent" style="z-index: 6;"></div>
                 
                 <!-- Fallback gradient if video doesn't load -->
                 <div class="absolute inset-0 gradient-bg" id="fallback-bg"></div>
