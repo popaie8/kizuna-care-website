@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会社情報 | 絆訪問介護サービス</title>
+    <meta name="description" content="絆訪問介護サービスの会社情報ページです。合同会社K&Kサービスの概要、理念、アクセス情報などをご紹介します。">
+    <link rel="canonical" href="https://kizuna-care.com/about.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo1.png">
+</head>
+<body class="min-h-screen bg-white">
+
+    <!-- Header (same as index.html) -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container-custom section-padding">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <a href="index.html">
+                        <img src="images/logo1.png" alt="絆訪問介護サービス" class="h-16 w-auto">
+                    </a>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-bold text-primary">絆訪問介護サービス</h1>
+                        <p class="text-xs text-gray-600">合同会社K&Kサービス</p>
+                    </div>
+                </div>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary transition-colors">ホーム</a>
+                    <a href="services.html" class="text-gray-700 hover:text-primary transition-colors">サービス</a>
+                    <a href="about.html" class="text-primary font-medium">会社情報</a>
+                    <a href="testimonials.html" class="text-gray-700 hover:text-primary transition-colors">お客様の声</a>
+                    <a href="recruitment.html" class="text-gray-700 hover:text-primary transition-colors">採用情報</a>
+                    <a href="contact.html" class="btn btn-primary">お問い合わせ</a>
+                </div>
+                <button id="mobile-menu-button" class="lg:hidden p-2" aria-label="メニュー">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden lg:hidden pb-4">
+                <div class="flex flex-col space-y-3 pt-4 border-t">
+                    <a href="index.html" class="text-gray-700 hover:text-primary transition-colors py-2">ホーム</a>
+                    <a href="services.html" class="text-gray-700 hover:text-primary transition-colors py-2">サービス</a>
+                    <a href="about.html" class="text-primary font-medium py-2">会社情報</a>
+                    <a href="testimonials.html" class="text-gray-700 hover:text-primary transition-colors py-2">お客様の声</a>
+                    <a href="recruitment.html" class="text-gray-700 hover:text-primary transition-colors py-2">採用情報</a>
+                    <a href="contact.html" class="btn btn-primary w-full text-center">お問い合わせ</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="gradient-bg text-white py-16">
+            <div class="container-custom section-padding">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">会社情報</h1>
+                <p class="text-lg opacity-90">一人ひとりの尊厳を大切にし、その人らしい生活を支援します</p>
+            </div>
+        </section>
+
+        <!-- Company Overview -->
+        <section class="py-16">
+            <div class="container-custom section-padding">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8">会社概要</h2>
+                <div class="bg-gray-50 rounded-lg p-8">
+                    <table class="w-full">
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="py-4 pr-8 font-medium text-gray-700 w-1/3">法人名</td>
+                                <td class="py-4">合同会社K&Kサービス</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 pr-8 font-medium text-gray-700">事業所名</td>
+                                <td class="py-4">絆訪問介護サービス</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 pr-8 font-medium text-gray-700">設立</td>
+                                <td class="py-4">令和4年4月</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 pr-8 font-medium text-gray-700">所在地</td>
+                                <td class="py-4">〒133-0056 東京都江戸川区南小岩7丁目37番5号 101号室</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 pr-8 font-medium text-gray-700">電話番号</td>
+                                <td class="py-4">03-6820-5308（24時間受付）</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 pr-8 font-medium text-gray-700">FAX番号</td>
+                                <td class="py-4">03-6820-5309</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 pr-8 font-medium text-gray-700">メールアドレス</td>
+                                <td class="py-4">info@kizuna-care.com</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 pr-8 font-medium text-gray-700">指定番号</td>
+                                <td class="py-4">1312304759（重度訪問介護・居宅介護共通）</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 pr-8 font-medium text-gray-700">実施事業</td>
+                                <td class="py-4">
+                                    重度訪問介護（障害者総合支援法）<br>
+                                    居宅介護（障害者総合支援法）
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Philosophy -->
+        <section class="py-16 bg-gray-50">
+            <div class="container-custom section-padding">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8">企業理念</h2>
+                <div class="card p-8">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-primary mb-4">一人ひとりの尊厳を大切にし、<br>その人らしい生活を支援する</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-lg font-bold mb-2">社名の由来</h4>
+                            <p class="text-gray-600">
+                                「絆」という名前には、利用者様・ご家族様・スタッフ、そして地域の皆様との深いつながりを大切にしたいという想いを込めました。
+                                私たちは、単なる介護サービスの提供者ではなく、皆様の生活に寄り添うパートナーとして、信頼関係を築いていきたいと考えています。
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-2">私たちの使命</h4>
+                            <p class="text-gray-600">
+                                障害があっても、誰もが自分らしく、尊厳を持って生活できる社会の実現を目指します。
+                                24時間365日の支援体制で、利用者様の「できること」を大切にし、「やりたいこと」を応援します。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Strengths -->
+        <section class="py-16">
+            <div class="container-custom section-padding">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">絆訪問介護の強み</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card p-6 text-center hover:shadow-xl transition-shadow">
+                        <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white text-3xl">🏆</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">高い専門性</h3>
+                        <p class="text-gray-600">
+                            介護福祉士25名、看護師3名を含む専門スタッフが在籍。
+                            定期的な研修により、最新の介護技術と知識を習得しています。
+                        </p>
+                    </div>
+                    <div class="card p-6 text-center hover:shadow-xl transition-shadow">
+                        <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white text-3xl">💝</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">心に寄り添うケア</h3>
+                        <p class="text-gray-600">
+                            技術だけでなく、利用者様の気持ちに寄り添うことを大切に。
+                            一人ひとりのペースに合わせた丁寧なケアを提供します。
+                        </p>
+                    </div>
+                    <div class="card p-6 text-center hover:shadow-xl transition-shadow">
+                        <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white text-3xl">🌟</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">24時間365日対応</h3>
+                        <p class="text-gray-600">
+                            夜間・早朝・休日も通常料金で対応。
+                            緊急時にも迅速に駆けつけ、安心して生活できる環境を提供します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company History -->
+        <section class="py-16 bg-gray-50">
+            <div class="container-custom section-padding">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8">沿革</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="relative">
+                        <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-primary"></div>
+                        <div class="space-y-8">
+                            <div class="flex items-start">
+                                <div class="gradient-bg-soft text-gray-800 rounded-full w-16 h-16 flex items-center justify-center font-bold z-10">
+                                    2022
+                                </div>
+                                <div class="ml-8 card p-6 flex-1">
+                                    <h3 class="font-bold mb-2">令和4年4月</h3>
+                                    <p class="text-gray-600">合同会社K&Kサービス設立<br>江戸川区南小岩に事業所開設</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="gradient-bg-soft text-gray-800 rounded-full w-16 h-16 flex items-center justify-center font-bold z-10">
+                                    2023
+                                </div>
+                                <div class="ml-8 card p-6 flex-1">
+                                    <h3 class="font-bold mb-2">令和5年</h3>
+                                    <p class="text-gray-600">スタッフ数30名を突破<br>年間サービス提供時間30,000時間達成</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="gradient-bg-soft text-gray-800 rounded-full w-16 h-16 flex items-center justify-center font-bold z-10">
+                                    2024
+                                </div>
+                                <div class="ml-8 card p-6 flex-1">
+                                    <h3 class="font-bold mb-2">令和6年</h3>
+                                    <p class="text-gray-600">利用者数85名に拡大<br>顧客満足度98.5%を達成</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Staff Introduction -->
+        <section class="py-16">
+            <div class="container-custom section-padding">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">スタッフ紹介</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <div class="text-center">
+                        <div class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4"></div>
+                        <h3 class="font-bold">代表 田中 太郎</h3>
+                        <p class="text-sm text-gray-600">介護福祉士・社会福祉士</p>
+                        <p class="text-xs text-gray-500 mt-2">「地域の皆様に信頼される介護サービスを」</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4"></div>
+                        <h3 class="font-bold">管理者 佐藤 花子</h3>
+                        <p class="text-sm text-gray-600">看護師・ケアマネジャー</p>
+                        <p class="text-xs text-gray-500 mt-2">「医療と介護の連携を大切に」</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4"></div>
+                        <h3 class="font-bold">主任 鈴木 一郎</h3>
+                        <p class="text-sm text-gray-600">介護福祉士</p>
+                        <p class="text-xs text-gray-500 mt-2">「笑顔を忘れず丁寧なケアを」</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4"></div>
+                        <h3 class="font-bold">リーダー 山田 美咲</h3>
+                        <p class="text-sm text-gray-600">介護福祉士</p>
+                        <p class="text-xs text-gray-500 mt-2">「利用者様の声に耳を傾けて」</p>
+                    </div>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <h3 class="font-bold mb-2">スタッフ構成</h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div>
+                            <p class="text-2xl font-bold text-primary">25名</p>
+                            <p class="text-sm text-gray-600">介護福祉士</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-primary">3名</p>
+                            <p class="text-sm text-gray-600">看護師</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-primary">15名</p>
+                            <p class="text-sm text-gray-600">初任者研修修了者</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Contribution -->
+        <section class="py-16 bg-gray-50">
+            <div class="container-custom section-padding">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8">地域貢献活動</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card p-6">
+                        <h3 class="text-xl font-bold mb-4">介護相談会の開催</h3>
+                        <p class="text-gray-600 mb-4">
+                            毎月第3土曜日に無料介護相談会を開催。
+                            介護保険の使い方から、具体的な介護方法まで、専門スタッフが丁寧にお答えします。
+                        </p>
+                        <p class="text-sm text-primary">次回開催：8月17日（土）14:00〜16:00</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="text-xl font-bold mb-4">地域イベントへの参加</h3>
+                        <p class="text-gray-600 mb-4">
+                            地域の夏祭りや文化祭に積極的に参加。
+                            車椅子体験コーナーや介護相談ブースを設置し、地域の皆様との交流を深めています。
+                        </p>
+                        <p class="text-sm text-primary">年間参加イベント：12回以上</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="text-xl font-bold mb-4">介護技術研修の地域開放</h3>
+                        <p class="text-gray-600 mb-4">
+                            ご家族様向けの介護技術研修を定期的に開催。
+                            安全な移乗方法や、食事介助のコツなど、実践的な技術をお伝えしています。
+                        </p>
+                        <p class="text-sm text-primary">参加費：無料（要予約）</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="text-xl font-bold mb-4">災害時支援体制</h3>
+                        <p class="text-gray-600 mb-4">
+                            江戸川区と連携し、災害時の要支援者支援体制を構築。
+                            利用者様の安否確認から、避難所での介護支援まで対応します。
+                        </p>
+                        <p class="text-sm text-primary">防災訓練：年4回実施</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quality Commitment -->
+        <section class="py-16">
+            <div class="container-custom section-padding">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">品質へのこだわり</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">研修体制</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-accent mr-2 mt-1">✓</span>
+                                    <div>
+                                        <p class="font-medium">新人研修プログラム（2週間）</p>
+                                        <p class="text-sm text-gray-600">基本的な介護技術から、当社の理念まで徹底指導</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-accent mr-2 mt-1">✓</span>
+                                    <div>
+                                        <p class="font-medium">月例技術研修</p>
+                                        <p class="text-sm text-gray-600">最新の介護技術や医療知識をアップデート</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-accent mr-2 mt-1">✓</span>
+                                    <div>
+                                        <p class="font-medium">外部研修参加支援</p>
+                                        <p class="text-sm text-gray-600">専門性向上のための外部研修費用を会社負担</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">品質管理</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-accent mr-2 mt-1">✓</span>
+                                    <div>
+                                        <p class="font-medium">定期的なサービス評価</p>
+                                        <p class="text-sm text-gray-600">利用者様アンケートを基にサービス改善</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-accent mr-2 mt-1">✓</span>
+                                    <div>
+                                        <p class="font-medium">ヒヤリハット報告制度</p>
+                                        <p class="text-sm text-gray-600">事故防止のための情報共有と対策立案</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-accent mr-2 mt-1">✓</span>
+                                    <div>
+                                        <p class="font-medium">個人情報保護の徹底</p>
+                                        <p class="text-sm text-gray-600">プライバシーマーク取得に向けた取り組み</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Flow -->
+        <section id="flow" class="py-16">
+            <div class="container-custom section-padding">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8">ご利用の流れ</h2>
+                <div class="space-y-8">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 w-12 h-12 gradient-bg-soft text-gray-800 rounded-full flex items-center justify-center font-bold">1</div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-bold mb-2">お問い合わせ・ご相談（無料）</h3>
+                            <p class="text-gray-600">お電話・メール・LINEで24時間受付。ご相談内容のヒアリング、概算お見積りの提示を行います。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 w-12 h-12 gradient-bg-soft text-gray-800 rounded-full flex items-center justify-center font-bold">2</div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-bold mb-2">訪問アセスメント（無料）</h3>
+                            <p class="text-gray-600">ご自宅への訪問、利用者様の状況確認、ご家族様のご要望お聞き取り、詳細なサービス計画のご提案を行います。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 w-12 h-12 gradient-bg-soft text-gray-800 rounded-full flex items-center justify-center font-bold">3</div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-bold mb-2">各種手続き・契約</h3>
+                            <p class="text-gray-600">市区町村への申請支援（代行可能）、サービス等利用計画の作成、契約書類の説明・締結を行います。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 w-12 h-12 gradient-bg-soft text-gray-800 rounded-full flex items-center justify-center font-bold">4</div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-bold mb-2">サービス開始</h3>
+                            <p class="text-gray-600">担当ヘルパーのご紹介・顔合わせ、サービス提供開始、定期的なモニタリング・見直しを実施します。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 p-6 bg-blue-50 rounded-lg">
+                    <p class="text-blue-800">※急を要する場合は即日対応可能です。まずはお気軽にご相談ください。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Access -->
+        <section class="py-16 bg-gray-50">
+            <div class="container-custom section-padding">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8">アクセス</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">交通アクセス</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-bold text-gray-700 mb-2">電車でのアクセス</h4>
+                                <ul class="space-y-1 text-gray-600">
+                                    <li>• JR総武線「小岩駅」南口より徒歩12分</li>
+                                    <li>• 京成本線「江戸川駅」より徒歩8分</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-700 mb-2">バスでのアクセス</h4>
+                                <ul class="space-y-1 text-gray-600">
+                                    <li>• 都営バス「南小岩七丁目」停留所より徒歩2分</li>
+                                    <li>• 小岩駅南口より京成バス利用可能</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-700 mb-2">車でのアクセス</h4>
+                                <ul class="space-y-1 text-gray-600">
+                                    <li>• 首都高速7号小松川線「小岩IC」より約5分</li>
+                                    <li>• 駐車場：2台完備（来客用）</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
+                        <p class="text-gray-500">地図を表示</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-16 gradient-bg-soft text-gray-800">
+            <div class="container-custom section-padding text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">介護でお困りのことはありませんか？</h2>
+                <p class="text-lg mb-8 opacity-90">まずはお気軽にご相談ください。専門スタッフが丁寧に対応いたします。</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="btn bg-white text-primary hover:bg-gray-100">
+                        無料相談はこちら
+                    </a>
+                    <a href="tel:03-6820-5308" class="btn btn-secondary">
+                        <span class="mr-2">📞</span>今すぐ電話する
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container-custom section-padding">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold mb-4">絆訪問介護サービス</h4>
+                    <p class="text-sm text-gray-300">
+                        合同会社K&Kサービス<br>
+                        指定番号: 1312304759
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">サービス</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="services.html#severe-care" class="text-gray-300 hover:text-white">重度訪問介護</a></li>
+                        <li><a href="services.html#home-care" class="text-gray-300 hover:text-white">居宅介護</a></li>
+                        <li><a href="about.html#flow" class="text-gray-300 hover:text-white">ご利用の流れ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">会社情報</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="text-gray-300 hover:text-white">会社概要</a></li>
+                        <li><a href="recruitment.html" class="text-gray-300 hover:text-white">採用情報</a></li>
+                        <li><a href="privacy.html" class="text-gray-300 hover:text-white">プライバシーポリシー</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">お問い合わせ</h4>
+                    <p class="text-sm text-gray-300">
+                        24時間365日受付<br>
+                        📞 03-6820-5308<br>
+                        ✉️ info@kizuna-care.com
+                    </p>
+                </div>
+            </div>
+            <div class="text-center text-sm text-gray-400 pt-8 border-t border-gray-700">
+                &copy; 2025 絆訪問介護サービス. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "kizuna-care-website",
+  "version": "1.0.0",
+  "description": "絆訪問介護サービス - 公式ウェブサイト",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
+    "build": "npx tailwindcss -i ./css/input.css -o ./css/style.css --minify"
+  },
+  "keywords": ["介護", "訪問介護", "江戸川区"],
+  "author": "絆訪問介護サービス",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}
