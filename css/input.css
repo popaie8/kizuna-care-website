@@ -61,3 +61,71 @@
     background: linear-gradient(135deg, #F0F4FA 0%, #E8EFF8 100%);
   }
 }
+
+/* Mobile-specific video adjustments */
+@media (max-width: 768px) {
+    #hero-video {
+        object-position: center center;
+    }
+}
+
+/* Enhanced text shadows for better readability */
+.text-shadow-strong {
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.text-shadow-medium {
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+/* City view hero styles - Fixed */
+#fallback-bg {
+    display: block;
+    z-index: 1;
+}
+
+#hero-video {
+    z-index: 10 !important;
+}
+
+/* Hide fallback when video is playing (JavaScript will add this class) */
+.video-loaded #fallback-bg {
+    display: none !important;
+}
+
+/* Ensure video is always visible when loaded */
+#hero-video[style*="display: block"],
+#hero-video.video-visible {
+    display: block !important;
+    opacity: 1 !important;
+    z-index: 10 !important;
+}
+
+/* Enhanced gradient overlay for better text readability */
+.city-gradient-overlay {
+    background: linear-gradient(
+        180deg,
+        rgba(14, 165, 233, 0.4) 0%,
+        rgba(56, 189, 248, 0.3) 40%,
+        rgba(251, 146, 60, 0.5) 100%
+    );
+}
+
+/* Mobile height adjustments for split screen */
+@media (max-width: 767px) {
+    .split-screen-mobile {
+        height: 50vh;
+        min-height: 400px;
+    }
+}
+
+/* Smooth blend between sections - removed in favor of inline styles */
+
+/* Simple shadow for split screen */
+.soft-shadow-left {
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Corner radial gradients - removed in favor of inline styles */
+
+/* Removed blending effects */
