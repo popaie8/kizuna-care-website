@@ -81,15 +81,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.getElementById('mobile-menu');
     
     if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-        });
+        // Create backdrop element
+        const backdrop = document.createElement('div');
+        backdrop.id = 'mobile-menu-backdrop';
+        backdrop.className = 'hidden';
+        document.body.appendChild(backdrop);
+        
+        // Toggle menu function
+        function toggleMenu() {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            
+            if (isOpen) {
+                // Close menu
+                mobileMenu.classList.add('hidden');
+                backdrop.classList.add('hidden');
+                document.body.classList.remove('menu-open');
+            } else {
+                // Open menu
+                mobileMenu.classList.remove('hidden');
+                backdrop.classList.remove('hidden');
+                document.body.classList.add('menu-open');
+            }
+        }
+        
+        // Menu button click
+        mobileMenuButton.addEventListener('click', toggleMenu);
+        
+        // Backdrop click to close
+        backdrop.addEventListener('click', toggleMenu);
         
         // Close mobile menu when clicking on a link
         const mobileLinks = mobileMenu.querySelectorAll('a');
         mobileLinks.forEach(link => {
             link.addEventListener('click', function() {
                 mobileMenu.classList.add('hidden');
+                backdrop.classList.add('hidden');
+                document.body.classList.remove('menu-open');
             });
         });
     }
