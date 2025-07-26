@@ -10,6 +10,26 @@ document.addEventListener('DOMContentLoaded', function() {
         // Force load the video
         video.load();
         
+        // Force autoplay on mobile
+        video.setAttribute('autoplay', 'true');
+        video.setAttribute('muted', 'true');
+        video.setAttribute('playsinline', 'true');
+        
+        // Try to play video immediately
+        const playVideo = () => {
+            video.play().then(() => {
+                console.log('Video started playing');
+            }).catch(err => {
+                console.log('Auto-play was prevented:', err);
+                // Try again on user interaction
+                document.addEventListener('touchstart', () => {
+                    video.play();
+                }, { once: true });
+            });
+        };
+        
+        playVideo();
+        
         // Check if video file exists
         video.addEventListener('loadeddata', function() {
             console.log('Video loaded successfully');
@@ -19,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Video style completely replaced and classes added');
             console.log('Video computed style:', window.getComputedStyle(video).display);
             videoLoaded = true;
+            // Try to play again after loaded
+            playVideo();
         });
         
         video.addEventListener('loadedmetadata', function() {
