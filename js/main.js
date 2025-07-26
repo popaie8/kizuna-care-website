@@ -7,28 +7,81 @@ document.addEventListener('DOMContentLoaded', function() {
         
         console.log('Video element found, attempting to load:', video.src);
         
+        // Force all autoplay attributes
+        video.setAttribute('autoplay', 'autoplay');
+        video.setAttribute('muted', 'muted');
+        video.setAttribute('playsinline', 'playsinline');
+        video.setAttribute('webkit-playsinline', 'webkit-playsinline');
+        video.setAttribute('preload', 'auto');
+        video.muted = true;
+        video.autoplay = true;
+        video.loop = true;
+        video.playsInline = true;
+        
         // Force load the video
         video.load();
         
-        // Force autoplay on mobile
-        video.setAttribute('autoplay', 'true');
-        video.setAttribute('muted', 'true');
-        video.setAttribute('playsinline', 'true');
-        
-        // Try to play video immediately
-        const playVideo = () => {
-            video.play().then(() => {
-                console.log('Video started playing');
-            }).catch(err => {
-                console.log('Auto-play was prevented:', err);
-                // Try again on user interaction
-                document.addEventListener('touchstart', () => {
-                    video.play();
-                }, { once: true });
-            });
+        // Aggressive autoplay function
+        const forcePlayVideo = () => {
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    console.log('Video autoplay successful');
+                    if (!videoLoaded) {
+                        video.style.display = 'block';
+                        video.style.opacity = '1';
+                        videoLoaded = true;
+                    }
+                }).catch(err => {
+                    console.log('Autoplay failed, setting up user interaction triggers:', err);
+                    
+                    // Multiple fallback events for user interaction
+                    const tryPlay = () => {
+                        video.play().then(() => {
+                            console.log('Video started after user interaction');
+                            video.style.display = 'block';
+                            video.style.opacity = '1';
+                        }).catch(e => console.log('Video play still failed:', e));
+                    };
+                    
+                    // Listen for various user interaction events
+                    document.addEventListener('touchstart', tryPlay, { once: true });
+                    document.addEventListener('click', tryPlay, { once: true });
+                    document.addEventListener('scroll', tryPlay, { once: true });
+                    document.addEventListener('keydown', tryPlay, { once: true });
+                });
+            }
         };
         
-        playVideo();
+        // Try to play immediately
+        forcePlayVideo();
+        
+        // Try again after a short delay
+        setTimeout(forcePlayVideo, 100);
+        setTimeout(forcePlayVideo, 500);
+        
+        // Use Intersection Observer to trigger autoplay when video comes into view
+        if ('IntersectionObserver' in window) {
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        console.log('Video in viewport, attempting autoplay');
+                        forcePlayVideo();
+                        // Try every 100ms for 3 seconds when in view
+                        const playInterval = setInterval(() => {
+                            if (video.paused) {
+                                forcePlayVideo();
+                            } else {
+                                clearInterval(playInterval);
+                            }
+                        }, 100);
+                        setTimeout(() => clearInterval(playInterval), 3000);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            videoObserver.observe(video);
+        }
         
         // Check if video file exists
         video.addEventListener('loadeddata', function() {
