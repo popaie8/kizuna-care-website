@@ -1,9 +1,16 @@
 {
+  "name": "kizuna-care-hp",
   "outputDirectory": ".",
   "buildCommand": "",
   "installCommand": "",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/success",
+      "destination": "/success.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
