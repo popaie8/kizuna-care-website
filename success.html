@@ -38,22 +38,36 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                     </div>
-                    <h1 class="text-3xl md:text-4xl font-bold mb-4">送信完了</h1>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4">お問い合わせありがとうございます</h1>
                     <p class="text-lg text-gray-600 mb-8">
-                        お問い合わせありがとうございます。<br>
-                        内容を確認の上、担当者より1営業日以内にご連絡させていただきます。
+                        貴重なお時間をいただき、ありがとうございます。<br>
+                        内容を確認の上、専門スタッフより<strong>24時間以内</strong>にご連絡いたします。<br>
+                        <span class="text-sm text-gray-500 mt-2">※土日祝日を除く</span>
                     </p>
                 </div>
 
-                <div class="card p-8 mb-8">
-                    <h2 class="text-xl font-bold mb-4">お急ぎの場合</h2>
-                    <p class="text-gray-600 mb-4">
-                        お急ぎの場合は、お電話でのお問い合わせをお願いいたします。
-                    </p>
-                    <a href="tel:03-6820-5308" class="text-2xl font-bold text-primary hover:underline">
-                        📞 03-6820-5308
-                    </a>
-                    <p class="text-sm text-gray-500 mt-2">24時間365日対応</p>
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-4 text-primary">お急ぎの場合</h2>
+                        <p class="text-gray-600 mb-4">
+                            緊急のご相談やお急ぎの場合は、<br>
+                            お電話で直接ご連絡ください。
+                        </p>
+                        <a href="tel:03-6820-5308" class="text-xl font-bold text-primary hover:underline">
+                            📞 03-6820-5308
+                        </a>
+                        <p class="text-sm text-gray-500 mt-2">24時間365日対応</p>
+                    </div>
+                    
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-4 text-primary">次のステップ</h2>
+                        <ul class="text-gray-600 space-y-2 text-sm">
+                            <li>✓ 担当者からの連絡をお待ちください</li>
+                            <li>✓ ご不明な点があれば遠慮なくお聞きください</li>
+                            <li>✓ 無料相談・お見積もりも承ります</li>
+                            <li>✓ サービス開始まで丁寧にサポートいたします</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -80,10 +94,19 @@
     </footer>
 
     <script>
-        // Redirect to home page after 10 seconds
+        // Redirect to home page after 15 seconds
         setTimeout(function() {
             window.location.href = 'index.html';
-        }, 10000);
+        }, 15000);
+        
+        // Show countdown timer
+        let countdown = 15;
+        const timer = setInterval(function() {
+            countdown--;
+            if (countdown <= 0) {
+                clearInterval(timer);
+            }
+        }, 1000);
     </script>
 </body>
 </html>
