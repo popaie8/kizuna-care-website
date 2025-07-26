@@ -3,7 +3,7 @@
   "outputDirectory": ".",
   "buildCommand": "",
   "installCommand": "",
-  "cleanUrls": true,
+  "cleanUrls": false,
   "trailingSlash": false,
   "headers": [
     {
