@@ -4,8 +4,8 @@ const organizationSchema = {
     "@type": "Organization",
     "name": "絆訪問介護サービス",
     "alternateName": "合同会社K&Kサービス",
-    "url": "https://kizuna-care.com",
-    "logo": "https://kizuna-care.com/images/logo1.png",
+    "url": "https://kizuna-houmon.jp",
+    "logo": "https://kizuna-houmon.jp/images/logo1.png",
     "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+81-3-6820-5308",
@@ -29,9 +29,9 @@ const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
     "name": "絆訪問介護サービス",
-    "image": "https://kizuna-care.com/images/logo1.png",
-    "@id": "https://kizuna-care.com",
-    "url": "https://kizuna-care.com",
+    "image": "https://kizuna-houmon.jp/images/logo1.png",
+    "@id": "https://kizuna-houmon.jp",
+    "url": "https://kizuna-houmon.jp",
     "telephone": "+81-3-6820-5308",
     "address": {
         "@type": "PostalAddress",

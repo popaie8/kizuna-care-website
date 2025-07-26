@@ -646,8 +646,8 @@ const companyData = {
   contact: {
     phone: "03-6820-5308",
     fax: "03-6820-5309",
-    email: "info@kizuna-care.com",
-    website: "https://kizuna-care.com"
+    email: "info@kizuna-houmon.jp",
+    website: "https://kizuna-houmon.jp"
   },
   address: {
     postal: "133-0056",
