@@ -15,7 +15,7 @@ const organizationSchema = {
     },
     "address": {
         "@type": "PostalAddress",
-        "streetAddress": "南小岩7丁目37番5号 101号室",
+        "streetAddress": "南小岩７丁目３７番地５号 101号室",
         "addressLocality": "江戸川区",
         "addressRegion": "東京都",
         "postalCode": "133-0056",
@@ -35,7 +35,7 @@ const localBusinessSchema = {
     "telephone": "+81-3-6820-5308",
     "address": {
         "@type": "PostalAddress",
-        "streetAddress": "南小岩7丁目37番5号 101号室",
+        "streetAddress": "南小岩７丁目３７番地５号 101号室",
         "addressLocality": "江戸川区",
         "addressRegion": "東京都",
         "postalCode": "133-0056",
