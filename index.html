@@ -332,9 +332,7 @@
 
                     <!-- Contact Form -->
                     <div class="card p-8">
-                        <form name="contact" method="POST" action="https://formspree.io/f/xknnowqd">
-                            <input type="hidden" name="_next" value="https://www.kizuna-houmon.jp/success.html">
-                            <input type="hidden" name="_subject" value="絆訪問介護サービス - お問い合わせ（トップページより）">
+                        <form name="contact" id="home-contact-form" method="POST" action="/success.html">
                             
                             <div class="mb-6">
                                 <label for="name" class="block text-sm font-medium mb-2">お名前 <span class="text-red-500">*</span></label>
@@ -426,5 +424,22 @@
 
     <!-- JavaScript -->
     <script src="js/main.js?v=2025072704"></script>
+    <script>
+        // Handle form submission
+        const homeForm = document.getElementById('home-contact-form');
+        if (homeForm) {
+            homeForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Collect form data
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData.entries());
+                
+                // For now, just redirect to success page
+                // TODO: Implement actual email sending
+                window.location.href = '/success.html';
+            });
+        }
+    </script>
 </body>
 </html>
