@@ -302,18 +302,49 @@
     </footer>
 
     <script src="js/main.js?v=2025072704"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
+        // Initialize EmailJS - Replace with your actual public key
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY_HERE"); // TODO: Replace with actual key
+        })();
+
         // Handle form submission
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = '送信中...';
+            submitBtn.disabled = true;
+            
             // Collect form data
             const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
             
-            // For now, just redirect to success page
-            // TODO: Implement actual email sending with EmailJS or similar service
-            window.location.href = '/success.html';
+            // Prepare email parameters
+            const templateParams = {
+                from_name: formData.get('name'),
+                from_email: formData.get('email'),
+                phone: formData.get('phone'),
+                inquiry_type: formData.get('inquiry_type'),
+                message: formData.get('message'),
+                to_email: 'info@kizuna-houmon.jp', // This will be forwarded to your actual email
+                reply_to: formData.get('email')
+            };
+            
+            // Send email using EmailJS
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function() {
+                    // Success - redirect to thank you page
+                    window.location.href = '/success.html';
+                }, function(error) {
+                    // Error handling
+                    console.error('Email send failed:', error);
+                    alert('送信に失敗しました。お電話でお問い合わせください。\n📞 03-6820-5308');
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                });
         });
     </script>
 </body>
