@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <!-- Version: 2.0.1 | Updated: 2024-12-28 | Force rebuild -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>お問い合わせ | 絆訪問介護サービス | 香取市近辺の高齢者介護</title>
     <meta name="description" content="絆訪問介護サービスへのお問い合わせはこちらから。香取市近辺で高齢者介護のことなら何でもご相談ください。受付時間：午前9時〜午後6時。">
     <link rel="canonical" href="https://kizuna-houmon.jp/contact">
@@ -318,8 +322,12 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=2025072704"></script>
+    <script src="js/main.js?v=20241228001"></script>
     <script>
+        // Version 2.0.1 - Updated 2024-12-28
+        // Using /api/contact endpoint
+        console.log('Contact form script loaded - Version 2.0.1');
+        
         // Handle form submission with Vercel Function
         document.getElementById('contact-form').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -343,8 +351,9 @@
             };
             
             try {
-                // Use the simplified contact endpoint
+                // Use the simplified contact endpoint (Version 2.0.1)
                 const endpoint = '/api/contact';
+                console.log('Sending request to:', endpoint);
                 
                 // Send to Vercel Function with cache busting
                 const response = await fetch(endpoint + '?t=' + Date.now(), {
