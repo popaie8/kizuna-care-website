@@ -319,15 +319,9 @@
     </footer>
 
     <script src="js/main.js?v=2025072704"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-        // Initialize EmailJS - Replace with your actual public key
-        (function() {
-            emailjs.init("YOUR_PUBLIC_KEY_HERE"); // TODO: Replace with actual key
-        })();
-
-        // Handle form submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+        // Handle form submission with Vercel Function
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // Show loading state
@@ -339,29 +333,44 @@
             // Collect form data
             const formData = new FormData(this);
             
-            // Prepare email parameters
-            const templateParams = {
-                from_name: formData.get('name'),
-                from_email: formData.get('email'),
+            // Prepare request body
+            const requestBody = {
+                name: formData.get('name'),
+                email: formData.get('email'),
                 phone: formData.get('phone'),
-                inquiry_type: formData.get('inquiry_type'),
-                message: formData.get('message'),
-                to_email: 'info@kizuna-houmon.jp', // This will be forwarded to your actual email
-                reply_to: formData.get('email')
+                inquiry_type: formData.get('inquiry-type'), // Note: form field name is 'inquiry-type'
+                message: formData.get('message')
             };
             
-            // Send email using EmailJS
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-                .then(function() {
+            try {
+                // Send to Vercel Function
+                const response = await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok && result.success) {
                     // Success - redirect to thank you page
                     window.location.href = '/success';
-                }, function(error) {
+                } else {
                     // Error handling
-                    console.error('Email send failed:', error);
-                    alert('送信に失敗しました。お電話でお問い合わせください。\n📞 03-6820-5308');
+                    console.error('Email send failed:', result);
+                    alert(result.error || '送信に失敗しました。お電話でお問い合わせください。\n📞 03-6820-5308');
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
-                });
+                }
+            } catch (error) {
+                // Network or other error
+                console.error('Email send error:', error);
+                alert('送信に失敗しました。ネットワーク接続をご確認ください。\nお急ぎの場合はお電話でお問い合わせください。\n📞 03-6820-5308');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
         });
     </script>
 </body>
