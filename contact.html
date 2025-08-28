@@ -343,8 +343,12 @@
             };
             
             try {
+                // Try different endpoints - you can change this to test different versions
+                // Options: '/api/send-email', '/api/send-mail', '/api/test-email'
+                const endpoint = '/api/send-mail'; // Changed to new endpoint
+                
                 // Send to Vercel Function
-                const response = await fetch('/api/send-email', {
+                const response = await fetch(endpoint, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
