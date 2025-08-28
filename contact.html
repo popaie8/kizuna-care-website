@@ -358,8 +358,20 @@
                     // Success - redirect to thank you page
                     window.location.href = '/success';
                 } else {
-                    // Error handling
+                    // Error handling with more details
                     console.error('Email send failed:', result);
+                    
+                    // Development mode - show detailed error
+                    if (result.configError) {
+                        console.error('Configuration error:', result.configError);
+                    }
+                    if (result.details) {
+                        console.error('Error details:', result.details);
+                    }
+                    if (result.code) {
+                        console.error('Error code:', result.code);
+                    }
+                    
                     alert(result.error || '送信に失敗しました。お電話でお問い合わせください。\n📞 03-6820-5308');
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;

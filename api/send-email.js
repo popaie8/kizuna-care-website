@@ -1,18 +1,28 @@
 const nodemailer = require('nodemailer');
 
 // メール送信設定
-const transporter = nodemailer.createTransporter({
+const smtpConfig = {
   host: process.env.SMTP_HOST || 'sv16435.xserver.jp',
-  port: process.env.SMTP_PORT || 587,
-  secure: false, // true for 465, false for other ports
+  port: parseInt(process.env.SMTP_PORT || '587'),
+  secure: process.env.SMTP_PORT === '465', // true for 465, false for other ports
   auth: {
     user: process.env.SMTP_USER || 'info@kizuna-houmon.jp',
-    pass: process.env.SMTP_PASS
+    pass: process.env.SMTP_PASS || ''
   },
   tls: {
-    rejectUnauthorized: false // 自己署名証明書を許可
-  }
+    rejectUnauthorized: false, // 自己署名証明書を許可
+    ciphers: 'SSLv3'
+  },
+  debug: true, // デバッグ情報を出力
+  logger: true // ログを出力
+};
+
+console.log('SMTP Config (without password):', {
+  ...smtpConfig,
+  auth: { ...smtpConfig.auth, pass: '***' }
 });
+
+const transporter = nodemailer.createTransporter(smtpConfig);
 
 // CORS headers
 const corsHeaders = {
@@ -160,10 +170,23 @@ Email: info@kizuna-houmon.jp
 
   } catch (error) {
     console.error('Email sending error:', error);
-    res.status(500).json({ 
+    console.error('Error stack:', error.stack);
+    
+    // より詳細なエラー情報を返す（本番環境では制限する必要あり）
+    const errorResponse = {
       error: 'メール送信に失敗しました。お電話でお問い合わせください。',
       details: error.message,
-      headers: corsHeaders 
-    });
+      code: error.code,
+      command: error.command,
+      headers: corsHeaders
+    };
+    
+    // 環境変数が設定されているか確認
+    if (!process.env.SMTP_PASS) {
+      errorResponse.configError = 'SMTP_PASS environment variable is not set';
+      console.error('SMTP_PASS is not configured in environment variables');
+    }
+    
+    res.status(500).json(errorResponse);
   }
 };
