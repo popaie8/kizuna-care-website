@@ -343,15 +343,15 @@
             };
             
             try {
-                // Try different endpoints - you can change this to test different versions
-                // Options: '/api/send-email', '/api/send-mail', '/api/test-email'
-                const endpoint = '/api/send-mail'; // Changed to new endpoint
+                // Use the simplified contact endpoint
+                const endpoint = '/api/contact';
                 
-                // Send to Vercel Function
-                const response = await fetch(endpoint, {
+                // Send to Vercel Function with cache busting
+                const response = await fetch(endpoint + '?t=' + Date.now(), {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Cache-Control': 'no-cache'
                     },
                     body: JSON.stringify(requestBody)
                 });
