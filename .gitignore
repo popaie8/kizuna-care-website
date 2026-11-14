@@ -9,3 +9,12 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vercel
+
+# 2026-08-19: 実在する秘密ファイルが除外パターンから漏れていた。
+# `.env` / `.env.local` / `.env.production.local` はあったが、
+# **実際に置かれている `.env.production` と `.env.check` が両方とも未 ignore**で、
+# この repo は public (popaie8/kizuna-care-website)。`git add -A` 一回で
+# 本番の SMTP パスワードが公開される一手前だった。
+# 個別列挙ではまた漏れるので、`.env*` を全て落として例外だけ通す形にする。
+.env*
+!.env.example

@@ -324,10 +324,6 @@
 
     <script src="js/main.js?v=20241228001"></script>
     <script>
-        // Version 2.0.1 - Updated 2024-12-28
-        // Using /api/contact endpoint
-        console.log('Contact form script loaded - Version 2.0.1');
-        
         // Handle form submission with Vercel Function
         document.getElementById('contact-form').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -346,21 +342,16 @@
                 name: formData.get('name'),
                 email: formData.get('email'),
                 phone: formData.get('phone'),
-                inquiry_type: formData.get('inquiry-type'), // Note: form field name is 'inquiry-type'
+                inquiry_type: formData.get('inquiry-type'),
                 message: formData.get('message')
             };
             
             try {
-                // Use the simplified contact endpoint (Version 2.0.1)
-                const endpoint = '/api/contact';
-                console.log('Sending request to:', endpoint);
-                
-                // Send to Vercel Function with cache busting
-                const response = await fetch(endpoint + '?t=' + Date.now(), {
+                // Send to Vercel Function
+                const response = await fetch('/api/contact', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Cache-Control': 'no-cache'
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(requestBody)
                 });
@@ -371,26 +362,12 @@
                     // Success - redirect to thank you page
                     window.location.href = '/success';
                 } else {
-                    // Error handling with more details
                     console.error('Email send failed:', result);
-                    
-                    // Development mode - show detailed error
-                    if (result.configError) {
-                        console.error('Configuration error:', result.configError);
-                    }
-                    if (result.details) {
-                        console.error('Error details:', result.details);
-                    }
-                    if (result.code) {
-                        console.error('Error code:', result.code);
-                    }
-                    
                     alert(result.error || '送信に失敗しました。お電話でお問い合わせください。\n📞 03-6820-5308');
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
                 }
             } catch (error) {
-                // Network or other error
                 console.error('Email send error:', error);
                 alert('送信に失敗しました。ネットワーク接続をご確認ください。\nお急ぎの場合はお電話でお問い合わせください。\n📞 03-6820-5308');
                 submitBtn.textContent = originalText;
