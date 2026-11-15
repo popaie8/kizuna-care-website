@@ -1,0 +1,7 @@
+# 絆訪問介護 info@ の転送 (Email Worker)。Cloudflare アカウント = popaie (5bf84c94…)
+# 2026-11-15 は画面 (Workers & Pages) で src/index.js を貼って配備した。宛先は secret FORWARD_TO。
+name = "kizuna-mail-forward"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+account_id = "5bf84c9432d3b16582a2c9b80a9c4bed"
+workers_dev = false
