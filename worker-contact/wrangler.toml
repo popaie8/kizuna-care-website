@@ -1,0 +1,15 @@
+# 絆訪問介護 お問い合わせの受け口。Cloudflare アカウント = popaie (5bf84c94…)
+# 2026-11-15 は画面 (Workers & Pages) で src/ を 1 本に束ねた物を貼って配備した。
+# 宛先 (Email Routing で検証済みの物、カンマ区切り) は repo が public なので書かない: secret MAIL_TO
+name = "kizuna-contact"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+account_id = "5bf84c9432d3b16582a2c9b80a9c4bed"
+workers_dev = false
+routes = [{ pattern = "form.kizuna-houmon.jp", custom_domain = true }]
+
+[vars]
+MAIL_FROM = "form@kizuna-houmon.jp"
+
+[[send_email]]
+name = "MAILER"

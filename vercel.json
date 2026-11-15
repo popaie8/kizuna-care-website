@@ -2,10 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "outputDirectory": ".",
-  "regions": ["hnd1"],
-  "functions": {
-    "api/contact.js": {
-      "maxDuration": 10
-    }
-  }
+  "regions": [
+    "hnd1"
+  ]
 }

@@ -375,6 +375,7 @@
                     <!-- Contact Form -->
                     <div class="card p-8">
                         <form name="contact" id="home-contact-form" method="POST" action="/success.html">
+                            <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;"><label>この欄は空のままにしてください<input type="text" name="website" tabindex="-1" autocomplete="off" value=""></label></div>
                             
                             <div class="mb-6">
                                 <label for="name" class="block text-sm font-medium mb-2">お名前 <span class="text-red-500">*</span></label>
@@ -486,11 +487,12 @@
                     email: formData.get('email'),
                     phone: formData.get('phone'),
                     inquiry_type: formData.get('inquiry-type'),
-                    message: formData.get('message')
+                    message: formData.get('message'),
+                    website: formData.get('website') || ''
                 };
 
                 try {
-                    const response = await fetch('/api/contact', {
+                    const response = await fetch('https://form.kizuna-houmon.jp/', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(requestBody)
